@@ -8,11 +8,11 @@ export class CreditCardClient extends GMOPGClient {
   /**
    * Execute transaction (entry + execution)
    */
-  async execTran(params: CreditCardTransactionRequest) {
+  async execTran(params: CreditCardTransactionRequest): Promise<any> {
     const config = this.getConfig();
     
     // Step 1: Entry transaction
-    const entryResult = await this.entryTran({
+    const entryResult: any = await this.entryTran({
       ShopID: config.shopId,
       ShopPass: config.shopPass,
       OrderID: params.orderId,
@@ -26,7 +26,7 @@ export class CreditCardClient extends GMOPGClient {
     }
 
     // Step 2: Execute transaction
-    const execResult = await this.execTranInternal({
+    const execResult: any = await this.execTranInternal({
       AccessID: entryResult.AccessID,
       AccessPass: entryResult.AccessPass,
       OrderID: params.orderId,
@@ -46,14 +46,14 @@ export class CreditCardClient extends GMOPGClient {
   /**
    * Entry transaction
    */
-  private async entryTran(params: any) {
+  private async entryTran(params: any): Promise<any> {
     return this.request('/payment/EntryTran.idPass', params);
   }
 
   /**
    * Execute transaction (internal)
    */
-  private async execTranInternal(params: any) {
+  private async execTranInternal(params: any): Promise<any> {
     return this.request('/payment/ExecTran.idPass', params);
   }
 
@@ -65,7 +65,7 @@ export class CreditCardClient extends GMOPGClient {
     accessPass: string;
     jobCd: 'VOID' | 'RETURN' | 'RETURNX' | 'CAPTURE';
     amount?: number;
-  }) {
+  }): Promise<any> {
     const config = this.getConfig();
     
     return this.request('/payment/AlterTran.idPass', {
@@ -81,7 +81,7 @@ export class CreditCardClient extends GMOPGClient {
   /**
    * Search transaction
    */
-  async searchTrade(params: { orderId: string }) {
+  async searchTrade(params: { orderId: string }): Promise<any> {
     const config = this.getConfig();
     
     return this.request('/payment/SearchTrade.idPass', {

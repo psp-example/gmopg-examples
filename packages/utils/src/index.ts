@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+import { createHmac } from 'crypto';
 
 /**
  * Generate a unique order ID
@@ -67,8 +67,7 @@ export function formatExpiry(year: string, month: string): string {
  * Generate hash for security
  */
 export function generateHash(data: string, secret: string): string {
-  return crypto
-    .createHmac('sha256', secret)
+  return createHmac('sha256', secret)
     .update(data)
     .digest('hex');
 }

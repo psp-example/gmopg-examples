@@ -8,11 +8,11 @@ export class BankTransferClient extends GMOPGClient {
   /**
    * Execute bank transfer transaction
    */
-  async execTran(params: BankTransferRequest) {
+  async execTran(params: BankTransferRequest): Promise<any> {
     const config = this.getConfig();
     
     // Step 1: Entry transaction
-    const entryResult = await this.entryTran({
+    const entryResult: any = await this.entryTran({
       ShopID: config.shopId,
       ShopPass: config.shopPass,
       OrderID: params.orderId,
@@ -24,7 +24,7 @@ export class BankTransferClient extends GMOPGClient {
     }
 
     // Step 2: Execute bank transfer transaction
-    const execResult = await this.execTranInternal({
+    const execResult: any = await this.execTranInternal({
       AccessID: entryResult.AccessID,
       AccessPass: entryResult.AccessPass,
       OrderID: params.orderId,
@@ -42,21 +42,21 @@ export class BankTransferClient extends GMOPGClient {
   /**
    * Entry transaction
    */
-  private async entryTran(params: any) {
+  private async entryTran(params: any): Promise<any> {
     return this.request('/payment/EntryTranPayEasy.idPass', params);
   }
 
   /**
    * Execute bank transfer transaction (internal)
    */
-  private async execTranInternal(params: any) {
+  private async execTranInternal(params: any): Promise<any> {
     return this.request('/payment/ExecTranPayEasy.idPass', params);
   }
 
   /**
    * Search bank transfer transaction
    */
-  async searchTrade(params: { orderId: string }) {
+  async searchTrade(params: { orderId: string }): Promise<any> {
     const config = this.getConfig();
     
     return this.request('/payment/SearchTradePayEasy.idPass', {
