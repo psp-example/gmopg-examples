@@ -1,0 +1,23 @@
+{
+  "name": "@gmopg/utils",
+  "version": "1.0.0",
+  "description": "Utility functions for GMO Payment Gateway integration",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "gmo-payment-gateway",
+    "utils"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@gmopg/types": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "example-cvs-payment",
+  "version": "1.0.0",
+  "description": "Convenience store payment example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@gmopg/api-client": "workspace:*",
+    "@gmopg/types": "workspace:*",
+    "@gmopg/utils": "workspace:*",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}
