@@ -1,0 +1,25 @@
+{
+  "name": "@gmopg/api-client",
+  "version": "1.0.0",
+  "description": "GMO Payment Gateway API client",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "gmo-payment-gateway",
+    "api-client"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@gmopg/types": "workspace:*",
+    "@gmopg/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}

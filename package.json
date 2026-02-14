@@ -1,0 +1,25 @@
+{
+  "name": "gmopg-examples",
+  "version": "1.0.0",
+  "description": "GMO Payment Gateway API examples monorepo",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter '*' dev",
+    "build": "pnpm --filter '@gmopg/*' build",
+    "clean": "pnpm --filter '*' clean",
+    "typecheck": "pnpm --filter '*' typecheck"
+  },
+  "keywords": [
+    "gmo-payment-gateway",
+    "payment",
+    "api",
+    "examples"
+  ],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
